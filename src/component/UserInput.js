@@ -1,19 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const UserInput = props => {
     const [currentValue, setCurrentValue] = useState('');
-
     const changeTodoHandler = (event) => {
         console.log(currentValue)
         setCurrentValue(event.target.value);
     }
 
+    useEffect(() => {
+        if (props.lastSelect !== null) {
+            const dataUpdate = props.lastSelect.todo;
+            setCurrentValue(dataUpdate);
+        }
+    }, [props.lastSelect?.todo]);
+
     const submitHandler = (event) => {
         event.preventDefault();
         console.log(currentValue);
-        const data = {todo: currentValue, status: 'Todo'}
-        props.saveNewData(data);
+        let data = {todo: currentValue, status: 'Todo'}
+        if (props.lastSelect?.id)  {
+            data = {todo: currentValue, status: props.lastSelect.status, id: props.lastSelect.id};
+            props.saveNewData(data);
+            props.handlerUpdate(true);
+        } else {
+            props.saveNewData(data);
+        }
         setCurrentValue('');
     }
     return (
