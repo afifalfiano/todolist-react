@@ -1,0 +1,7 @@
+.todolist {
+    display: flex;
+    max-width: 500px;
+    gap: 20px;
+    background-color: aliceblue;
+    margin: 10px;
+}
