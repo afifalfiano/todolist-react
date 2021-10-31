@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const UserInput = props => {
     const [currentValue, setCurrentValue] = useState('');
+
     const changeTodoHandler = (event) => {
         console.log(currentValue)
         setCurrentValue(event.target.value);
@@ -20,7 +21,7 @@ const UserInput = props => {
             <form onSubmit={submitHandler}>
                 <div>
                     <label>Todo</label>
-                    <input type="text" value={currentValue} onChange={changeTodoHandler} ></input>
+                    <input type="text" value={currentValue} name="todo" onChange={changeTodoHandler} />
                 </div>
             <button type="submit">Add New Todo</button>
             </form>

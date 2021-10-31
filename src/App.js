@@ -28,6 +28,7 @@ const initialData = [
 ]
 function App() {
   const [enteredData, setEnteredData] = useState(initialData);
+  const [lastSelectTodo, setLastSelectTodo] = useState('');
   const userInputHandler = props => {
     props.id = +Math.random().toFixed(3);
     setEnteredData([...enteredData, props]);
@@ -36,7 +37,7 @@ function App() {
 
   const changeStatusHandler = props => {
     console.log(props, 'change');
-    const data = enteredData.filter(item => {
+    const data = enteredData.map(item => {
       if (item.id === +props) {
         if (item.status === STATUS.TODO) {
           item.status = STATUS.IN_PROGRES
@@ -45,23 +46,17 @@ function App() {
         } else {
           item.status = STATUS.TODO
         }
-        return item;
-      }
-    });
-
-    const updateData = enteredData.map(item => {
-      if (item.id === +props) {
-        item = data[0];
       }
       return item;
-    })
-    setEnteredData([...updateData]);
+    });
+    setLastSelectTodo(data[0])
+    setEnteredData([...data]);
 
     console.log(enteredData);
   }
   return (
     <div>
-      <UserInput saveNewData={userInputHandler}/>
+      <UserInput saveNewData={userInputHandler} lastSelect={lastSelectTodo} />
       <TodoList data={enteredData} changeStatus={changeStatusHandler} />
     </div>
   );

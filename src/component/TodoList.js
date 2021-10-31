@@ -1,5 +1,4 @@
 
-import { useState } from 'react';
 import './TodoList.css';
 
 const TodoList = props => {
