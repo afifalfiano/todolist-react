@@ -3,7 +3,6 @@ import './TodoList.css';
 
 const TodoList = props => {
     const changeStatus = (event) => {
-        console.log(event.target.id, 'cek');
         props.changeStatus(event.target.id);
     }
 

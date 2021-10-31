@@ -6,7 +6,6 @@ const UserInput = props => {
     const [currentValue, setCurrentValue] = useState(props.lastSelect.todo);
     const [isValid, setIsValid] = useState(true);
     const changeTodoHandler = (event) => {
-        console.log(currentValue)
         setCurrentValue(event.target.value);
     }
 

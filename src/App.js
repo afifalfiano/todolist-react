@@ -30,7 +30,6 @@ function App() {
   const [enteredData, setEnteredData] = useState(initialData);
   const [lastSelectTodo, setLastSelectTodo] = useState('');
   const userInputHandler = props => {
-    console.log(props, 'x');
     if(props.hasOwnProperty('id')) {
       const data = enteredData.map(item => {
         if (item.id === props.id) {
@@ -43,11 +42,9 @@ function App() {
       props.id = +Math.random().toFixed(3);
       setEnteredData([...enteredData, props]);
     }
-    console.log(enteredData);
   }
 
   const changeStatusHandler = props => {
-    console.log(props, 'change');
     const data = enteredData.map(item => {
       if (item.id === +props) {
         if (item.status === STATUS.TODO) {
@@ -63,7 +60,6 @@ function App() {
     });
     setEnteredData([...data]);
 
-    console.log(enteredData);
   }
 
   const userUpdateHandler = props => {
