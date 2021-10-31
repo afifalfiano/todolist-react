@@ -1,6 +1,6 @@
 
 .invalid {
-    border: 1px solid red;
+    color: red;
 }
 .bg-invalid {
     background-color: red;
@@ -16,15 +16,47 @@
 }
 
 .valid {
-    border: 1px solid green;
+    color:green;
 }
 
 .form-input {
     padding: 10px;
     display: flex;
+    min-width: 500px;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-control {
     display: flex;
     flex-direction: column;
+}
+
+form {
+    width: 100%;
+    padding: 10px;
+}
+form label {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid rgb(105, 105, 105);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+form button {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    float: right;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: cadetblue;
+    font-size: 14px;
+    color: #fff;
 }

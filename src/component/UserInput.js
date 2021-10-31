@@ -4,7 +4,7 @@ import './UserInput.css';
 
 const UserInput = props => {
     const [currentValue, setCurrentValue] = useState(props.lastSelect.todo);
-    const [isValid, setIsValid] = useState(false);
+    const [isValid, setIsValid] = useState(true);
     const changeTodoHandler = (event) => {
         console.log(currentValue)
         setCurrentValue(event.target.value);
@@ -37,7 +37,7 @@ const UserInput = props => {
         <div className="form-input">
             <form onSubmit={submitHandler}>
                 <div className="form-control">
-                    <label className={`${!isValid ? 'invalid' : 'valid'}`}>Todo</label>
+                    <label className={`${!isValid ? 'invalid' : ''}`}>Todo</label>
                     <input className={`${!isValid ? 'bg-invalid' : 'bg-valid'}`} placeholder="your todo" type="text" value={currentValue} name="todo" onChange={changeTodoHandler} />
                 </div>
             <button type="submit">Add New Todo</button>

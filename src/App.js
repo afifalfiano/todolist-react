@@ -72,7 +72,7 @@ function App() {
     }
   }
   return (
-    <div>
+    <div className="wrapper">
       <UserInput saveNewData={userInputHandler} lastSelect={lastSelectTodo} handlerUpdate={userUpdateHandler} />
       <TodoList data={enteredData} changeStatus={changeStatusHandler} />
     </div>

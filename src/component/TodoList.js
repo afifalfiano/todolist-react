@@ -13,30 +13,37 @@ const TodoList = props => {
             if (item.status === 'Completed') {
                content =  (
                     <>
-                    <p><del>{item.todo}</del></p>
-                    <p><del>{item.status}</del></p>
+                    <p className="todolist__todo"><del>{item.todo}</del></p>
+                    <p className="todolist__status completed"><del>{item.status}</del></p>
+                    </>
+                )
+            } else if (item.status === 'In Progress') {
+                content =  (
+                    <>
+                    <p className="todolist__todo">{item.todo}</p>
+                    <p className="todolist__status in_progress">{item.status}</p>
                     </>
                 )
             } else { 
              content = (
                     <>
-                    <p>{item.todo}</p>
-                    <p>{item.status}</p>
+                    <p className="todolist__todo">{item.todo}</p>
+                    <p className="todolist__status todo">{item.status}</p>
                     </>
             )
             }
 
         return (
-            <div key={item.id} id={item.id} className="todolist" onClick={changeStatus}>
+            <div key={item.id} id={item.id} className="todolist__list" onClick={changeStatus}>
                 {content}
             </div>
         )
     });
     
     return (
-        <>
+        <div className="todolist">
             {list}
-        </>
+        </div>
     )
 }
 
