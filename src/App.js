@@ -68,7 +68,7 @@ function App() {
 
   const userUpdateHandler = props => {
     if (props) {
-      setLastSelectTodo(null);
+      setLastSelectTodo({todo: '', status: ''});
     }
   }
   return (

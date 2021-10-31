@@ -1,0 +1,30 @@
+
+.invalid {
+    border: 1px solid red;
+}
+.bg-invalid {
+    background-color: red;
+    color: #fff;
+}
+.bg-valid {
+    background-color: transparent;
+    color: #000;
+}
+
+.bg-invalid::placeholder {
+    color: #fff;
+}
+
+.valid {
+    border: 1px solid green;
+}
+
+.form-input {
+    padding: 10px;
+    display: flex;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+}
