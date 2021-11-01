@@ -18,9 +18,9 @@ const UserInput = props => {
         event.preventDefault();
         if (currentValue !== '' && currentValue !== undefined) {
             setIsValid(true);
-            let data = {todo: currentValue, status: 'Todo'}
-            if (props.lastSelect?.id)  {
-                data = {todo: currentValue, status: props.lastSelect.status, id: props.lastSelect.id};
+            let data = { todo: currentValue, status: 'Todo' }
+            if (props.lastSelect?.id) {
+                data = { todo: currentValue, status: props.lastSelect.status, id: props.lastSelect.id };
                 props.saveNewData(data);
                 props.handlerUpdate(true);
             } else {
@@ -30,16 +30,20 @@ const UserInput = props => {
         } else {
             setIsValid(false);
         }
-        
+
     }
     return (
         <div className="form-input">
             <form onSubmit={submitHandler}>
                 <div className="form-control">
                     <label className={`${!isValid ? 'invalid' : ''}`}>Todo</label>
-                    <input className={`${!isValid ? 'bg-invalid' : 'bg-valid'}`} placeholder="your todo" type="text" value={currentValue} name="todo" onChange={changeTodoHandler} />
+                    <input 
+                    className={`${!isValid ? 'bg-invalid' : 'bg-valid'}`} 
+                    placeholder="your todo" type="text" 
+                    value={currentValue} name="todo" 
+                    onChange={changeTodoHandler} />
                 </div>
-            <button type="submit">Add New Todo</button>
+                <button type="submit">Add New Todo</button>
             </form>
         </div>
     )

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import './FilterTodo.css';
 
 const FilterTodo = props => {
