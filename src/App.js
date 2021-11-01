@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import FilterTodo from './component/FilterTodo';
 import TodoList from './component/TodoList';
 import UserInput from './component/UserInput';
 
@@ -29,6 +30,7 @@ const initialData = [
 function App() {
   const [enteredData, setEnteredData] = useState(initialData);
   const [lastSelectTodo, setLastSelectTodo] = useState('');
+  const [currentFilter, setCurrentFilter] = useState('All');
   const userInputHandler = props => {
     if(props.hasOwnProperty('id')) {
       const data = enteredData.map(item => {
@@ -67,10 +69,25 @@ function App() {
       setLastSelectTodo({todo: '', status: ''});
     }
   }
+
+  const filterHandler = item => {
+    console.log(item, 'test');
+    setCurrentFilter(item);
+  }
+
+  const dataFilter = enteredData.filter(todo => {
+    if(currentFilter === 'All') {
+      return todo;
+    } else if (todo.status === currentFilter) {
+      return todo;
+    }
+  });
+  console.log(dataFilter, 'cek');
   return (
     <div className="wrapper">
       <UserInput saveNewData={userInputHandler} lastSelect={lastSelectTodo} handlerUpdate={userUpdateHandler} />
-      <TodoList data={enteredData} changeStatus={changeStatusHandler} />
+      <FilterTodo selected={currentFilter} onChangeFilter={filterHandler} />
+      <TodoList data={dataFilter} changeStatus={changeStatusHandler} />
     </div>
   );
 }
